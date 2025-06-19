@@ -98,25 +98,24 @@ function InputScreen({}: Props) {
 
 <div
   id="form"
-  class="text-gray-600 h-auto border-[1px] border-blue-500 shadow-md rounded-lg p-2 flex flex-col sm:flex-row items-center my-3 gap-2 sm:gap-0"
+  class="text-gray-600 border-[1px] border-blue-500 shadow-md rounded-lg flex flex-col sm:flex-row items-center my-3"
 >
-  <input
-    x-ref="input"
-    placeholder="Enter Tiktok URL"
-    class="bg-transparent text-m w-full pl-2 font-semibold h-10 rounded-full text-sm focus:outline-none text-black"
-    required={true}
-    type="text"
-    onChange={(e) => setUrl(e.currentTarget.value)}
-    value={url()}
-  />
-
-  <div class="flex justify-center gap-2 w-full sm:w-auto">
+  <div class="relative w-full">
+    <input
+      x-ref="input"
+      placeholder="Enter TikTok URL"
+      class="bg-transparent text-m w-full pl-2 font-semibold h-10 rounded-full text-sm focus:outline-none text-black"
+      required={true}
+      type="text"
+      onChange={(e) => setUrl(e.currentTarget.value)}
+      value={url()}
+    />
     <button
       onclick={async (e) => {
         e.preventDefault();
-        // Ask for permission to access clipboard
+        // Ask for permission to access clipboard readText
         await navigator.permissions.query({ name: 'clipboard-read' as any }).then((result) => {
-          if (result.state == 'granted' || result.state == 'prompt') {
+          if (result.state === 'granted' || result.state === 'prompt') {
             navigator.clipboard.readText().then((text) => {
               setUrl(text);
             });
@@ -127,37 +126,32 @@ function InputScreen({}: Props) {
           setUrl(text);
         });
       }}
-      class="flex justify-center items-center p-2 border-[1px] text-xs font-semibold shadow-md rounded-md dark:bg-blue-600 dark:text-white"
+      class="absolute top-0 right-0 p-2 bg-blue-600 shadow-md rounded-md dark:bg-blue-600 dark:text-white"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 60 58" class='fill-current dark:text-white'>
-        <path d="M17.5 12h17c.8 0 1.5-.7 1.5-1.5V6c0-2.2-1.8-4-4-4H20c-2.2 0-4 1.8-4 4v4.5c0 .8.7 1.5 1.5 1.5z"></path>
-        <path d="M44 6h-2.5c-.8 0-1.5.7-1.5 1.5V12c0 2.2-1.8 4-4 4H16c-2.2 0-4-1.8-4-4V7.5c0-.8-.7-1.5-1.5-1.5H8c-2.2 0-4 1.8-4 4v36c0 2.2 1.8 4 4 4h36c2.2 0 4-1.8 4-4V10c0-2.2-1.8-4-4-4zm-6 35c0 .6-.4 1-1 1H15c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h22c.6 0 1 .4 1 1v2zm0-8c0 .6-.4 1-1 1H15c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h22c.6 0 1 .4 1 1v2zm0-8c0 .6-.4 1-1 1H15c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h22c.6 0 1 .4 1 1v2z"></path>
-      </svg>
       Paste
     </button>
-
-    <button
-      onclick={(e) => {
-        e.preventDefault();
-        if (url() == '') {
-          toast.error('Please enter a valid url or username', {
-            duration: 3000,
-            position: 'bottom-center',
-            style: {
-              'font-size': '16px',
-            },
-          });
-        } else {
-          fetchData();
-        }
-      }}
-      class="w-full sm:w-auto p-1 bg-blue-600 shadow-md h-10 rounded text-white"
-    >
-      <span class="px-1 flex items-center font-medium tracking-wide"> Download </span>
-    </button>
   </div>
-</div>
 
+  <button
+    onclick={(e) => {
+      e.preventDefault();
+      if (url() === '') {
+        toast.error('Please enter a valid URL or username', {
+          duration: 3000,
+          position: 'bottom-center',
+          style: {
+            'font-size': '16px',
+          },
+        });
+      } else {
+        fetchData();
+      }
+    }}
+    class="mt-2 sm:mt-0 w-full sm:w-auto p-2 bg-blue-600 shadow-md h-10 rounded text-white"
+  >
+    Download
+  </button>
+</div>
 
 
       
