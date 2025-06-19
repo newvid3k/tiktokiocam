@@ -110,7 +110,7 @@ function InputScreen({}: Props) {
     value={url()}
   />
 
-  <div class="flex flex-wrap justify-center gap-2 w-full sm:w-auto">
+  <div class="flex justify-center gap-2 w-full sm:w-auto">
     <button
       onclick={async (e) => {
         e.preventDefault();
