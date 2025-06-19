@@ -1,3 +1,4 @@
+
 // {
 // "status": "success",
 // "result": {
@@ -95,10 +96,10 @@ function InputScreen({}: Props) {
     <div>
       <Toaster />
 
-
-<div class="relative max-w-4xl mx-auto mt-8" data-astro-cid-zi4ldr3x=""> 
-      
-      <div id="form" class="text-gray-600 h-14 border-[1px] border-blue-500 shadow-md rounded-lg flex items-center my-3">
+      <div
+                id="form"
+                class="text-gray-600 h-14 border-[1px] border-blue-500 shadow-md rounded-lg flex items-center my-3"
+            >
                 <input
                     x-ref="input"
                     placeholder="Enter Tiktok URL"
