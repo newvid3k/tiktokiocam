@@ -95,10 +95,28 @@ function InputScreen({}: Props) {
     <div>
       <Toaster />
 
-      <div
-                id="form"
-                class="text-gray-600 h-14 border-[1px] border-blue-500 shadow-md rounded-lg flex items-center my-3"
-            >
+<div class="relative max-w-4xl mx-auto mt-8" data-astro-cid-zi4ldr3x=""> 
+  <form class="block items-center sm:space-x-4 sm:flex sub-form" data-astro-cid-zi4ldr3x=""> 
+      <div class="relative flex-1" data-astro-cid-zi4ldr3x=""> 
+        
+          <input type="text" placeholder="Paste tiktok video link here" class="w-full pr-14 pl-4 outline-none rounded-md py-5 text-black placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent down-url bg-[#F9E2D2]" style="box-shadow: 0 0 2px rgb(255, 255, 255) !important;" id="tiktok-url" data-astro-cid-zi4ldr3x=""> 
+                <button class="px-8 py-[14px] bg-[#2172F6] text-xl text-white font-semibold rounded-lg shadow-lg transition-all duration-300focus:outline-none focus:ring-2 outline-none
+                    mt-10 sm:mt-0 w-full sm:w-auto send-btn cursor-pointer sm:absolute right-1 top-[50%] translate-y-[-50%]" >
+                  Download
+                <div data-astro-cid-zi4ldr3x=""></div>
+                </button>
+                <button class="px-[2px] py-[12px] right-2 sm:right-[180px] absolute rounded-lg top-[20%] sm:top-[50%] translate-y-[-50%]" style="background: linear-gradient(54.09deg, #0348dd 2.03%, #8142f5 48.63%, #ee4dd4 96.22%), linear-gradient(0deg, rgba(201, 46, 255, .15), rgba(201, 46, 255, .15))" type="button" data-astro-cid-zi4ldr3x=""> 
+                  <img src="https://stiktokio.com/images/paste.webp" class="aspect-auto absolute top-[50%] translate-y-[-50%] left-[17px]" alt="" data-astro-cid-zi4ldr3x=""> 
+                      <span class="bg-[#F2D1FD] px-8 py-[12px] text-xl rounded-lg" id="paste-btn" data-astro-cid-zi4ldr3x="">Paste</span> 
+                </button> 
+        </div> 
+  </form>
+</div>
+
+
+
+      
+      <div id="form" class="text-gray-600 h-14 border-[1px] border-blue-500 shadow-md rounded-lg flex items-center my-3">
                 <input
                     x-ref="input"
                     placeholder="Enter Tiktok URL"
