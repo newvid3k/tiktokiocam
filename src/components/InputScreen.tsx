@@ -96,67 +96,7 @@ function InputScreen({}: Props) {
     <div>
       <Toaster />
 
-<div
-  id="form"
-  class="text-gray-600 border-[1px] border-blue-500 shadow-md rounded-lg flex flex-col sm:flex-row items-center my-3"
->
-  <div class="relative w-full">
-    <input
-      x-ref="input"
-      placeholder="Enter TikTok URL"
-      class="bg-transparent text-m w-full pl-2 font-semibold h-10 rounded-full text-sm focus:outline-none text-black"
-      required={true}
-      type="text"
-      onChange={(e) => setUrl(e.currentTarget.value)}
-      value={url()}
-    />
-    <button
-      onclick={async (e) => {
-        e.preventDefault();
-        // Ask for permission to access clipboard readText
-        await navigator.permissions.query({ name: 'clipboard-read' as any }).then((result) => {
-          if (result.state === 'granted' || result.state === 'prompt') {
-            navigator.clipboard.readText().then((text) => {
-              setUrl(text);
-            });
-          }
-        });
 
-        navigator.clipboard.readText().then((text) => {
-          setUrl(text);
-        });
-      }}
-      class="absolute top-0 right-0 p-2 bg-blue-600 shadow-md rounded-md dark:bg-blue-600 dark:text-white"
-    >
-      Paste
-    </button>
-  </div>
-
-  <button
-    onclick={(e) => {
-      e.preventDefault();
-      if (url() === '') {
-        toast.error('Please enter a valid URL or username', {
-          duration: 3000,
-          position: 'bottom-center',
-          style: {
-            'font-size': '16px',
-          },
-        });
-      } else {
-        fetchData();
-      }
-    }}
-    class="mt-2 sm:mt-0 w-full sm:w-auto p-2 bg-blue-600 shadow-md h-10 rounded text-white"
-  >
-    Download
-  </button>
-</div>
-
-
-      
-
-      
       <div
                 id="form"
                 class="text-gray-600 h-14 border-[1px] border-blue-500 shadow-md rounded-lg flex items-center my-3"
